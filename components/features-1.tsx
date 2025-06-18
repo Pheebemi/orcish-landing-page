@@ -1,10 +1,39 @@
+"use client";
+import { motion, Variants } from "framer-motion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Code2, Paintbrush, Database, FileCode2, Globe2, Cpu } from "lucide-react";
 import { ReactNode } from "react";
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const cardVariants: Variants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { 
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5
+    }
+  }
+};
+
 export default function Features() {
   return (
-    <section className="bg-zinc-50 py-16 md:py-32 dark:bg-transparent">
+    <motion.section 
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+      className="bg-zinc-50 py-16 md:py-32 dark:bg-transparent"
+    >
       <div className="@container mx-auto max-w-5xl px-6">
         <div className="text-center">
           <h2 className="text-balance text-4xl font-semibold lg:text-5xl">
@@ -14,7 +43,10 @@ export default function Features() {
             Comprehensive digital solutions tailored to your needs
           </p>
         </div>
-        <div className="@min-4xl:max-w-full @min-4xl:grid-cols-3 mx-auto mt-8 grid max-w-sm gap-6 *:text-center md:mt-16">
+        <motion.div 
+          variants={containerVariants}
+          className="@min-4xl:max-w-full @min-4xl:grid-cols-3 mx-auto mt-8 grid max-w-sm gap-6 *:text-center md:mt-16"
+        >
           <Card className="group shadow-zinc-950/5">
             <CardHeader className="pb-3">
               <CardDecorator>
@@ -104,9 +136,9 @@ export default function Features() {
               </p>
             </CardContent>
           </Card>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
