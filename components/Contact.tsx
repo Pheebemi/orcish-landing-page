@@ -53,7 +53,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-medium">Our Location</h3>
-                  <p className="text-muted-foreground">123 Tech Hub Street, Jalingo, Taraba State</p>
+                  <p className="text-muted-foreground">49 Barde Way inside Technology Incubation centre Jalingo, Taraba State</p>
                 </div>
               </motion.div>
 
@@ -67,7 +67,7 @@ export default function ContactSection() {
                 <div>
                   <h3 className="font-medium">Email Us</h3>
                   <a href="mailto:contact@algaddafdigitalhub.com" className="text-muted-foreground hover:text-primary">
-                    contact@algaddafdigitalhub.com
+                    contact
                   </a>
                 </div>
               </motion.div>
@@ -82,7 +82,7 @@ export default function ContactSection() {
                 <div>
                   <h3 className="font-medium">Call Us</h3>
                   <a href="tel:+2341234567890" className="text-muted-foreground hover:text-primary">
-                    +234 123 456 7890
+                    +234 
                   </a>
                 </div>
               </motion.div>

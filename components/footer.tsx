@@ -1,13 +1,14 @@
-import { Logo } from "@/components/logo";
+'"use client";'
+// import { Logo } from "@/components/logo";
 import Link from "next/link";
 
 const links = [
   {
-    title: "Features",
+    title: "Gallery",
     href: "#",
   },
   {
-    title: "Solution",
+    title: "Services",
     href: "#",
   },
   {
@@ -15,7 +16,7 @@ const links = [
     href: "#",
   },
   {
-    title: "Pricing",
+    title: "Contact",
     href: "#",
   },
   {
@@ -33,7 +34,7 @@ export default function FooterSection() {
     <footer className="py-16 md:py-32">
       <div className="mx-auto max-w-5xl px-6">
         <Link href="/" aria-label="go home" className="mx-auto block size-fit">
-          <Logo />
+          {/* <Logo /> */}
         </Link>
 
         <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
@@ -176,7 +177,7 @@ export default function FooterSection() {
         </div>
         <span className="text-muted-foreground block text-center text-sm">
           {" "}
-          © {new Date().getFullYear()} Tailus UI, All rights reserved
+          © {new Date().getFullYear()} Algaddafdigitalhub, All rights reserved
         </span>
       </div>
     </footer>
