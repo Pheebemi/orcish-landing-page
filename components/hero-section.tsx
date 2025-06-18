@@ -88,7 +88,7 @@ export default function HeroSection() {
                 animate="visible"
                 variants={textVariants}
               >
-                <span className="text-primary inline-block mb-4 font-semibold">
+                <span className="text-white inline-block mb-4 font-semibold ">
                   Welcome to AlGaddafDigitalHub
                 </span>
               </motion.div>
