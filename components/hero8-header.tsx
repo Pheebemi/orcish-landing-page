@@ -7,9 +7,9 @@ import React from "react";
 import { ModeToggle } from "./mode-toggle";
 
 const menuItems = [
-  { name: "Features", href: "#link" },
+  { name: "Gallery", href: "#link" },
   { name: "Solution", href: "#link" },
-  { name: "Pricing", href: "#link" },
+  { name: "Contact", href: "#link" },
   { name: "About", href: "#link" },
 ];
 
