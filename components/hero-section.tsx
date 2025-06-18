@@ -1,158 +1,157 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { HeroHeader } from "@/components/hero8-header";
-import { InfiniteSlider } from "@/components/ui/infinite-slider";
-import { ProgressiveBlur } from "@/components/ui/progressive-blur";
+import { motion, AnimatePresence, Variants } from "framer-motion";
+
+const carouselImages = [
+  "/tech1.jpg",
+  "/tech2.jpg",
+  "/tech3.jpg",
+];
+
+// Define properly typed variants
+const textVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const imageVariants: Variants = {
+  enter: {
+    opacity: 0,
+    scale: 1.1,
+  },
+  center: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.9,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
 
 export default function HeroSection() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % carouselImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <>
+    <div className="relative">
       <HeroHeader />
-      <main className="overflow-x-hidden">
-        <section>
-          <div className="pb-24 pt-12 md:pb-32 lg:pb-56 lg:pt-44">
-            <div className="relative mx-auto flex max-w-6xl flex-col px-6 lg:block">
-              <div className="mx-auto max-w-lg text-center lg:ml-0 lg:w-1/2 lg:text-left">
-                <h1 className="mt-8 max-w-2xl text-balance text-5xl font-medium md:text-6xl lg:mt-16 xl:text-7xl">
-                  Ship 10x Faster with NS
-                </h1>
-                <p className="mt-8 max-w-2xl text-pretty text-lg">
-                  Highly customizable components for building modern websites
-                  and applications that look and feel the way you mean it.
-                </p>
-
-                <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start">
-                  <Button asChild size="lg" className="px-5 text-base">
-                    <Link href="#link">
-                      <span className="text-nowrap">Start Building</span>
-                    </Link>
-                  </Button>
-                  <Button
-                    key={2}
-                    asChild
-                    size="lg"
-                    variant="ghost"
-                    className="px-5 text-base"
-                  >
-                    <Link href="#link">
-                      <span className="text-nowrap">Request a demo</span>
-                    </Link>
-                  </Button>
-                </div>
-              </div>
+      <main className="relative min-h-screen">
+        <section className="relative min-h-screen">
+          {/* Background Carousel */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentImage}
+              variants={imageVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.5 }}
+              className="absolute inset-0 w-full h-full"
+            >
+              <div className="absolute inset-0 z-10 bg-black/60" />
               <Image
-                className="-z-10 order-first ml-auto h-56 w-full object-cover invert sm:h-96 lg:absolute lg:inset-0 lg:-right-20 lg:-top-96 lg:order-last lg:h-max lg:w-2/3 lg:object-contain dark:mix-blend-lighten dark:invert-0"
-                src="https://res.cloudinary.com/dg4jhba5c/image/upload/v1741605150/abstract-bg_wq4f8w.jpg"
-                alt="Abstract Object"
-                height="4000"
-                width="3000"
+                src={carouselImages[currentImage]}
+                alt={`Slide ${currentImage + 1}`}
+                fill
+                className="object-cover"
+                priority
               />
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Content */}
+          <div className="relative z-20 mx-auto max-w-6xl px-6 pt-32 min-h-screen flex items-center">
+            <div className="max-w-2xl">
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={textVariants}
+              >
+                <span className="text-primary inline-block mb-4 font-semibold">
+                  Welcome to AlGaddafDigitalHub
+                </span>
+              </motion.div>
+
+              <motion.h1
+                variants={textVariants}
+                initial="hidden"
+                animate="visible"
+                transition={{ delay: 0.2 }}
+                className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
+              >
+                Innovating the Future of Technology
+              </motion.h1>
+
+              <motion.p
+                variants={textVariants}
+                initial="hidden"
+                animate="visible"
+                transition={{ delay: 0.4 }}
+                className="text-lg md:text-xl text-gray-200 mb-8 max-w-xl"
+              >
+                Empowering businesses through digital transformation, cutting-edge
+                solutions, and innovative technology services.
+              </motion.p>
+
+              <motion.div
+                variants={textVariants}
+                initial="hidden"
+                animate="visible"
+                transition={{ delay: 0.6 }}
+                className="flex flex-wrap gap-4"
+              >
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-white px-8"
+                >
+                  <Link href="#services">Explore Services</Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-black"
+                >
+                  <Link href="#contact">Get in Touch</Link>
+                </Button>
+              </motion.div>
             </div>
           </div>
-        </section>
-        <section className="bg-background pb-16 md:pb-32">
-          <div className="group relative m-auto max-w-6xl px-6">
-            <div className="flex flex-col items-center md:flex-row">
-              <div className="md:max-w-44 md:border-r md:pr-6">
-                <p className="text-end text-sm">Powering the best teams</p>
-              </div>
-              <div className="relative py-6 md:w-[calc(100%-11rem)]">
-                <InfiniteSlider speedOnHover={20} speed={40} gap={112}>
-                  <div className="flex">
-                    <Image
-                      className="mx-auto h-5 w-fit dark:invert"
-                      src="https://html.tailus.io/blocks/customers/nvidia.svg"
-                      alt="Nvidia Logo"
-                      width={80}
-                      height={20}
-                    />
-                  </div>
 
-                  <div className="flex">
-                    <Image
-                      className="mx-auto h-4 w-fit dark:invert"
-                      src="https://html.tailus.io/blocks/customers/column.svg"
-                      alt="Column Logo"
-                      width={64}
-                      height={16}
-                    />
-                  </div>
-                  <div className="flex">
-                    <Image
-                      className="mx-auto h-4 w-fit dark:invert"
-                      src="https://html.tailus.io/blocks/customers/github.svg"
-                      alt="GitHub Logo"
-                      width={64}
-                      height={16}
-                    />
-                  </div>
-                  <div className="flex">
-                    <Image
-                      className="mx-auto h-5 w-fit dark:invert"
-                      src="https://html.tailus.io/blocks/customers/nike.svg"
-                      alt="Nike Logo"
-                      width={80}
-                      height={20}
-                    />
-                  </div>
-                  <div className="flex">
-                    <Image
-                      className="mx-auto h-5 w-fit dark:invert"
-                      src="https://html.tailus.io/blocks/customers/lemonsqueezy.svg"
-                      alt="Lemon Squeezy Logo"
-                      width={80}
-                      height={20}
-                    />
-                  </div>
-                  <div className="flex">
-                    <Image
-                      className="mx-auto h-4 w-fit dark:invert"
-                      src="https://html.tailus.io/blocks/customers/laravel.svg"
-                      alt="Laravel Logo"
-                      width={64}
-                      height={16}
-                    />
-                  </div>
-                  <div className="flex">
-                    <Image
-                      className="mx-auto h-7 w-fit dark:invert"
-                      src="https://html.tailus.io/blocks/customers/lilly.svg"
-                      alt="Lilly Logo"
-                      width={112}
-                      height={28}
-                    />
-                  </div>
-
-                  <div className="flex">
-                    <Image
-                      className="mx-auto h-6 w-fit dark:invert"
-                      src="https://html.tailus.io/blocks/customers/openai.svg"
-                      alt="OpenAI Logo"
-                      width={96}
-                      height={24}
-                    />
-                  </div>
-                </InfiniteSlider>
-
-                <div className="bg-linear-to-r from-background absolute inset-y-0 left-0 w-20"></div>
-                <div className="bg-linear-to-l from-background absolute inset-y-0 right-0 w-20"></div>
-                <ProgressiveBlur
-                  className="pointer-events-none absolute left-0 top-0 h-full w-20"
-                  direction="left"
-                  blurIntensity={1}
-                />
-                <ProgressiveBlur
-                  className="pointer-events-none absolute right-0 top-0 h-full w-20"
-                  direction="right"
-                  blurIntensity={1}
-                />
-              </div>
+          {/* Scroll Indicator */}
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+          >
+            <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+              <div className="w-1 h-2 bg-white rounded-full mt-2" />
             </div>
-          </div>
+          </motion.div>
         </section>
       </main>
-    </>
+    </div>
   );
 }
