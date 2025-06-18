@@ -124,7 +124,7 @@ export default function HeroSection() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white px-8"
+                  className="bg-white hover:bg-primary/90 text-black px-8"
                 >
                   <Link href="#services">Explore Services</Link>
                 </Button>

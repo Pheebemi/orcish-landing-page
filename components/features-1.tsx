@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Settings2, Sparkles, Zap } from "lucide-react";
+import { Code2, Paintbrush, Database, FileCode2, Globe2, Cpu } from "lucide-react";
 import { ReactNode } from "react";
 
 export default function Features() {
@@ -8,27 +8,24 @@ export default function Features() {
       <div className="@container mx-auto max-w-5xl px-6">
         <div className="text-center">
           <h2 className="text-balance text-4xl font-semibold lg:text-5xl">
-            Built to cover your needs
+            Why Choose AlGaddaf Digital Hub?
           </h2>
           <p className="mt-4">
-            Libero sapiente aliquam quibusdam aspernatur, praesentium iusto
-            repellendus.
+            Comprehensive digital solutions tailored to your needs
           </p>
         </div>
         <div className="@min-4xl:max-w-full @min-4xl:grid-cols-3 mx-auto mt-8 grid max-w-sm gap-6 *:text-center md:mt-16">
           <Card className="group shadow-zinc-950/5">
             <CardHeader className="pb-3">
               <CardDecorator>
-                <Zap className="size-6" aria-hidden />
+                <Code2 className="size-6" aria-hidden />
               </CardDecorator>
-
-              <h3 className="mt-6 font-medium">Customizable</h3>
+              <h3 className="mt-6 font-medium">Programming Services</h3>
             </CardHeader>
-
             <CardContent>
               <p className="text-sm">
-                Extensive customization options, allowing you to tailor every
-                aspect to meet your specific needs.
+                Custom software development, web applications, and mobile app
+                solutions using cutting-edge technologies.
               </p>
             </CardContent>
           </Card>
@@ -36,16 +33,14 @@ export default function Features() {
           <Card className="group shadow-zinc-950/5">
             <CardHeader className="pb-3">
               <CardDecorator>
-                <Settings2 className="size-6" aria-hidden />
+                <Paintbrush className="size-6" aria-hidden />
               </CardDecorator>
-
-              <h3 className="mt-6 font-medium">You have full control</h3>
+              <h3 className="mt-6 font-medium">Graphic Design Services</h3>
             </CardHeader>
-
             <CardContent>
-              <p className="mt-3 text-sm">
-                From design elements to functionality, you have complete control
-                to create a unique and personalized experience.
+              <p className="text-sm">
+                Professional branding, UI/UX design, and visual content creation
+                that captivates your audience.
               </p>
             </CardContent>
           </Card>
@@ -53,16 +48,59 @@ export default function Features() {
           <Card className="group shadow-zinc-950/5">
             <CardHeader className="pb-3">
               <CardDecorator>
-                <Sparkles className="size-6" aria-hidden />
+                <Database className="size-6" aria-hidden />
               </CardDecorator>
-
-              <h3 className="mt-6 font-medium">Powered By AI</h3>
+              <h3 className="mt-6 font-medium">Digital Fundamentals</h3>
             </CardHeader>
-
             <CardContent>
-              <p className="mt-3 text-sm">
-                Elements to functionality, you have complete control to create a
-                unique experience.
+              <p className="text-sm">
+                Core digital infrastructure, cloud solutions, and technical
+                consulting for your business growth.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="group shadow-zinc-950/5">
+            <CardHeader className="pb-3">
+              <CardDecorator>
+                <FileCode2 className="size-6" aria-hidden />
+              </CardDecorator>
+              <h3 className="mt-6 font-medium">Software Contracting</h3>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm">
+                Dedicated development teams and project-based solutions for your
+                software needs.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="group shadow-zinc-950/5">
+            <CardHeader className="pb-3">
+              <CardDecorator>
+                <Globe2 className="size-6" aria-hidden />
+              </CardDecorator>
+              <h3 className="mt-6 font-medium">Digital Marketing</h3>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm">
+                SEO optimization, social media management, and digital marketing
+                strategies that drive results.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="group shadow-zinc-950/5">
+            <CardHeader className="pb-3">
+              <CardDecorator>
+                <Cpu className="size-6" aria-hidden />
+              </CardDecorator>
+              <h3 className="mt-6 font-medium">IT Consulting</h3>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm">
+                Expert guidance on digital transformation, technology stack
+                selection, and IT strategy.
               </p>
             </CardContent>
           </Card>
