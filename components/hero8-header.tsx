@@ -55,8 +55,8 @@ export const HeroHeader = () => {
 												className="text-muted-foreground hover:text-accent-foreground block duration-150"
 											>
 												<span>{item.name}</span>
-											</Link>
-										</li>
+                        </Link>
+                      </li>
 									))}
 								</ul>
 							</div>

@@ -7,9 +7,9 @@ import { HeroHeader } from "@/components/hero8-header";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
 const carouselImages = [
-  "/tech1.jpg",
-  "/tech2.jpg",
-  "/tech3.jpg",
+  "/tech1.JPG",
+  "/tech2.JPG",
+  "/tech3.JPG",
 ];
 
 // Define properly typed variants
@@ -132,7 +132,7 @@ export default function HeroSection() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-white bg- text-black hover:bg-white hover:text-black"
+                  className="border-white dark:text-white  hover:bg-white hover:text-black"
                 >
                   <Link href="#contact">Get in Touch</Link>
                 </Button>
