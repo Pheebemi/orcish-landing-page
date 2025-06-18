@@ -132,7 +132,7 @@ export default function HeroSection() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-black"
+                  className="border-white bg- text-black hover:bg-white hover:text-black"
                 >
                   <Link href="#contact">Get in Touch</Link>
                 </Button>
