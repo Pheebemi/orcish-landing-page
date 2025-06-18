@@ -39,7 +39,7 @@ export default function ContactSection() {
             <div className="space-y-4">
               <h2 className="text-4xl font-semibold">Get in Touch</h2>
               <p className="text-muted-foreground max-w-md">
-                Have a question or project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+                Have a question or project in mind? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
               </p>
             </div>
 
